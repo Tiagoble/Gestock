@@ -104,6 +104,11 @@ public class FormLogin extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Adwaita Mono", 0, 15)); // NOI18N
         jLabel3.setText("     Log In");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -192,6 +197,12 @@ public class FormLogin extends javax.swing.JFrame {
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         txtPassword.setText("");
     }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        FormHome home = new FormHome();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
