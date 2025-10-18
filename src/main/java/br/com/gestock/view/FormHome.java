@@ -13,14 +13,6 @@ public class FormHome extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPrincipalHome = new javax.swing.JPanel();
-        panelMenu = new javax.swing.JPanel();
-        labelLogoGestock = new javax.swing.JLabel();
-        buttonHome = new javax.swing.JButton();
-        buttonProdutos = new javax.swing.JButton();
-        buttonClientes = new javax.swing.JButton();
-        buttonVendas = new javax.swing.JButton();
-        buttonUsuarios = new javax.swing.JButton();
-        buttonSair = new javax.swing.JButton();
         panelDadosHome = new javax.swing.JPanel();
         panelProdutos = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -31,85 +23,26 @@ public class FormHome extends javax.swing.JFrame {
         panelVendas = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        panelMenu = new javax.swing.JPanel();
+        labelLogoGestock = new javax.swing.JLabel();
+        buttonHome = new javax.swing.JButton();
+        buttonProdutos = new javax.swing.JButton();
+        buttonClientes = new javax.swing.JButton();
+        buttonVendas = new javax.swing.JButton();
+        buttonUsuarios = new javax.swing.JButton();
+        buttonSair = new javax.swing.JButton();
+        pnProdutos = new javax.swing.JPanel();
+        pnClientes = new javax.swing.JPanel();
+        pnVendas = new javax.swing.JPanel();
+        pnUsuarios = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-
-        panelMenu.setBackground(new java.awt.Color(204, 204, 204));
-
-        labelLogoGestock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gestockMenor.png"))); // NOI18N
-
-        buttonHome.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
-        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
-        buttonHome.setText(" HOME");
-        buttonHome.setIconTextGap(10);
-
-        buttonProdutos.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
-        buttonProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produtos.png"))); // NOI18N
-        buttonProdutos.setText("PRODUTOS");
-        buttonProdutos.setIconTextGap(10);
-
-        buttonClientes.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
-        buttonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/clientes.png"))); // NOI18N
-        buttonClientes.setText("CLIENTES");
-        buttonClientes.setIconTextGap(10);
-
-        buttonVendas.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
-        buttonVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/vendas.png"))); // NOI18N
-        buttonVendas.setText("VENDAS");
-        buttonVendas.setIconTextGap(10);
-
-        buttonUsuarios.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
-        buttonUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
-        buttonUsuarios.setText("USUARIOS");
-        buttonUsuarios.setIconTextGap(10);
-
-        buttonSair.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
-        buttonSair.setForeground(new java.awt.Color(255, 51, 51));
-        buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/exit.png"))); // NOI18N
-        buttonSair.setText("SAIR");
-        buttonSair.setIconTextGap(10);
-        buttonSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSairActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(labelLogoGestock, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addComponent(buttonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addComponent(labelLogoGestock, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(buttonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(buttonProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(buttonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(buttonVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(buttonUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        setPreferredSize(new java.awt.Dimension(1124, 800));
+        setResizable(false);
 
         panelDadosHome.setBackground(new java.awt.Color(255, 255, 255));
-        panelDadosHome.setPreferredSize(new java.awt.Dimension(1000, 800));
+        panelDadosHome.setPreferredSize(new java.awt.Dimension(840, 800));
 
         panelProdutos.setBackground(new java.awt.Color(153, 153, 255));
         panelProdutos.setToolTipText("Quantidade de Produtos");
@@ -222,23 +155,173 @@ public class FormHome extends javax.swing.JFrame {
         panelDadosHomeLayout.setHorizontalGroup(
             panelDadosHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosHomeLayout.createSequentialGroup()
-                .addContainerGap(197, Short.MAX_VALUE)
+                .addContainerGap(298, Short.MAX_VALUE)
                 .addGroup(panelDadosHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                    .addComponent(panelVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(198, 198, 198))
+                    .addComponent(panelVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(251, 251, 251))
         );
         panelDadosHomeLayout.setVerticalGroup(
             panelDadosHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDadosHomeLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosHomeLayout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(panelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(135, 135, 135)
                 .addComponent(panelClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(119, 119, 119)
                 .addComponent(panelVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addGap(100, 100, 100))
+        );
+
+        panelMenu.setBackground(new java.awt.Color(204, 204, 204));
+        panelMenu.setPreferredSize(new java.awt.Dimension(284, 800));
+
+        labelLogoGestock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gestockMenor.png"))); // NOI18N
+
+        buttonHome.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
+        buttonHome.setText(" HOME");
+        buttonHome.setIconTextGap(10);
+        buttonHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonHomeMouseClicked(evt);
+            }
+        });
+
+        buttonProdutos.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        buttonProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produtos.png"))); // NOI18N
+        buttonProdutos.setText("PRODUTOS");
+        buttonProdutos.setIconTextGap(10);
+        buttonProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonProdutosMouseClicked(evt);
+            }
+        });
+
+        buttonClientes.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        buttonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/clientes.png"))); // NOI18N
+        buttonClientes.setText("CLIENTES");
+        buttonClientes.setIconTextGap(10);
+        buttonClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonClientesMouseClicked(evt);
+            }
+        });
+
+        buttonVendas.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        buttonVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/vendas.png"))); // NOI18N
+        buttonVendas.setText("VENDAS");
+        buttonVendas.setIconTextGap(10);
+        buttonVendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVendasMouseClicked(evt);
+            }
+        });
+
+        buttonUsuarios.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        buttonUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
+        buttonUsuarios.setText("USUARIOS");
+        buttonUsuarios.setIconTextGap(10);
+        buttonUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonUsuariosMouseClicked(evt);
+            }
+        });
+
+        buttonSair.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        buttonSair.setForeground(new java.awt.Color(255, 51, 51));
+        buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/exit.png"))); // NOI18N
+        buttonSair.setText("SAIR");
+        buttonSair.setIconTextGap(10);
+        buttonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
+        panelMenu.setLayout(panelMenuLayout);
+        panelMenuLayout.setHorizontalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelLogoGestock, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(buttonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+            .addComponent(buttonClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelMenuLayout.setVerticalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addComponent(labelLogoGestock, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(buttonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(buttonProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(buttonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(buttonVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(buttonUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(buttonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pnProdutos.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout pnProdutosLayout = new javax.swing.GroupLayout(pnProdutos);
+        pnProdutos.setLayout(pnProdutosLayout);
+        pnProdutosLayout.setHorizontalGroup(
+            pnProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 856, Short.MAX_VALUE)
+        );
+        pnProdutosLayout.setVerticalGroup(
+            pnProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+
+        pnClientes.setBackground(new java.awt.Color(153, 255, 204));
+
+        javax.swing.GroupLayout pnClientesLayout = new javax.swing.GroupLayout(pnClientes);
+        pnClientes.setLayout(pnClientesLayout);
+        pnClientesLayout.setHorizontalGroup(
+            pnClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 854, Short.MAX_VALUE)
+        );
+        pnClientesLayout.setVerticalGroup(
+            pnClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+
+        pnVendas.setBackground(new java.awt.Color(255, 255, 51));
+
+        javax.swing.GroupLayout pnVendasLayout = new javax.swing.GroupLayout(pnVendas);
+        pnVendas.setLayout(pnVendasLayout);
+        pnVendasLayout.setHorizontalGroup(
+            pnVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 855, Short.MAX_VALUE)
+        );
+        pnVendasLayout.setVerticalGroup(
+            pnVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+
+        pnUsuarios.setBackground(new java.awt.Color(255, 153, 153));
+
+        javax.swing.GroupLayout pnUsuariosLayout = new javax.swing.GroupLayout(pnUsuarios);
+        pnUsuarios.setLayout(pnUsuariosLayout);
+        pnUsuariosLayout.setHorizontalGroup(
+            pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 855, Short.MAX_VALUE)
+        );
+        pnUsuariosLayout.setVerticalGroup(
+            pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelPrincipalHomeLayout = new javax.swing.GroupLayout(panelPrincipalHome);
@@ -247,24 +330,53 @@ public class FormHome extends javax.swing.JFrame {
             panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalHomeLayout.createSequentialGroup()
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(panelDadosHome, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelDadosHome, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalHomeLayout.createSequentialGroup()
+                    .addGap(0, 289, Short.MAX_VALUE)
+                    .addComponent(pnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalHomeLayout.createSequentialGroup()
+                    .addGap(0, 291, Short.MAX_VALUE)
+                    .addComponent(pnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalHomeLayout.createSequentialGroup()
+                    .addGap(0, 290, Short.MAX_VALUE)
+                    .addComponent(pnVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalHomeLayout.createSequentialGroup()
+                    .addGap(0, 290, Short.MAX_VALUE)
+                    .addComponent(pnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         panelPrincipalHomeLayout.setVerticalGroup(
             panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelDadosHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelPrincipalHomeLayout.createSequentialGroup()
+                .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelDadosHome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelPrincipalHomeLayout.createSequentialGroup()
+                    .addComponent(pnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipalHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrincipalHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipalHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrincipalHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -274,6 +386,46 @@ public class FormHome extends javax.swing.JFrame {
     private void buttonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_buttonSairActionPerformed
+
+    private void buttonHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonHomeMouseClicked
+        panelDadosHome.setVisible(true);
+        pnClientes.setVisible(false);
+        pnProdutos.setVisible(false);
+        pnUsuarios.setVisible(false);
+        pnVendas.setVisible(false);
+    }//GEN-LAST:event_buttonHomeMouseClicked
+
+    private void buttonProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonProdutosMouseClicked
+        pnProdutos.setVisible(true);
+        pnClientes.setVisible(false);
+        panelDadosHome.setVisible(false);
+        pnUsuarios.setVisible(false);
+        pnVendas.setVisible(false);
+    }//GEN-LAST:event_buttonProdutosMouseClicked
+
+    private void buttonClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonClientesMouseClicked
+        pnClientes.setVisible(true);
+        pnProdutos.setVisible(false);
+        panelDadosHome.setVisible(false);
+        pnUsuarios.setVisible(false);
+        pnVendas.setVisible(false);
+    }//GEN-LAST:event_buttonClientesMouseClicked
+
+    private void buttonVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVendasMouseClicked
+        pnVendas.setVisible(true);
+        pnClientes.setVisible(false);
+        panelDadosHome.setVisible(false);
+        pnUsuarios.setVisible(false);
+        pnProdutos.setVisible(false);
+    }//GEN-LAST:event_buttonVendasMouseClicked
+
+    private void buttonUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUsuariosMouseClicked
+        pnUsuarios.setVisible(true);
+        pnClientes.setVisible(false);
+        panelDadosHome.setVisible(false);
+        pnProdutos.setVisible(false);
+        pnVendas.setVisible(false);
+    }//GEN-LAST:event_buttonUsuariosMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -317,5 +469,9 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipalHome;
     private javax.swing.JPanel panelProdutos;
     private javax.swing.JPanel panelVendas;
+    private javax.swing.JPanel pnClientes;
+    private javax.swing.JPanel pnProdutos;
+    private javax.swing.JPanel pnUsuarios;
+    private javax.swing.JPanel pnVendas;
     // End of variables declaration//GEN-END:variables
 }
