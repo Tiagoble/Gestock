@@ -32,9 +32,33 @@ public class FormHome extends javax.swing.JFrame {
         buttonUsuarios = new javax.swing.JButton();
         buttonSair = new javax.swing.JButton();
         pnProdutos = new javax.swing.JPanel();
+        labelTituloProduto = new javax.swing.JLabel();
+        buttonAdicionarProduto = new javax.swing.JButton();
+        buttonEditarProduto = new javax.swing.JButton();
+        buttonExcluirProduto = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableProdutos = new javax.swing.JTable();
         pnClientes = new javax.swing.JPanel();
+        labelTituloCliente = new javax.swing.JLabel();
+        buttonAdicionarCliente = new javax.swing.JButton();
+        buttonEditarCliente = new javax.swing.JButton();
+        buttonExcluirCliente = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableClientes = new javax.swing.JTable();
         pnVendas = new javax.swing.JPanel();
+        labelTituloVendas = new javax.swing.JLabel();
+        buttonAdicionarVenda = new javax.swing.JButton();
+        buttonEditarVenda = new javax.swing.JButton();
+        buttonExcluirVenda = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pnUsuarios = new javax.swing.JPanel();
+        labelTituloUsuarios = new javax.swing.JLabel();
+        buttonAdicionarUsuario = new javax.swing.JButton();
+        buttonEditarUsuarios = new javax.swing.JButton();
+        buttonExcluirUsuarios = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableUsuarios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -272,56 +296,242 @@ public class FormHome extends javax.swing.JFrame {
                 .addComponent(buttonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pnProdutos.setBackground(new java.awt.Color(204, 255, 204));
+        pnProdutos.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelTituloProduto.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        labelTituloProduto.setText("Produtos");
+
+        buttonAdicionarProduto.setText("Adicionar");
+
+        buttonEditarProduto.setText("Editar");
+
+        buttonExcluirProduto.setText("Excluir");
+        buttonExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirProdutoActionPerformed(evt);
+            }
+        });
+
+        tableProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableProdutos);
 
         javax.swing.GroupLayout pnProdutosLayout = new javax.swing.GroupLayout(pnProdutos);
         pnProdutos.setLayout(pnProdutosLayout);
         pnProdutosLayout.setHorizontalGroup(
             pnProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 856, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnProdutosLayout.createSequentialGroup()
+                .addGroup(pnProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnProdutosLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelTituloProduto))
+                    .addGroup(pnProdutosLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(buttonAdicionarProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                        .addComponent(buttonEditarProduto)))
+                .addGap(232, 232, 232)
+                .addComponent(buttonExcluirProduto)
+                .addGap(69, 69, 69))
+            .addComponent(jScrollPane1)
         );
         pnProdutosLayout.setVerticalGroup(
             pnProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(pnProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloProduto)
+                .addGap(18, 18, 18)
+                .addGroup(pnProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonAdicionarProduto)
+                    .addComponent(buttonEditarProduto)
+                    .addComponent(buttonExcluirProduto))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
         );
 
-        pnClientes.setBackground(new java.awt.Color(153, 255, 204));
+        pnClientes.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelTituloCliente.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        labelTituloCliente.setText("Clientes");
+
+        buttonAdicionarCliente.setText("Adicionar");
+        buttonAdicionarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdicionarClienteActionPerformed(evt);
+            }
+        });
+
+        buttonEditarCliente.setText("Editar");
+
+        buttonExcluirCliente.setText("Excluir");
+
+        tableClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableClientes);
 
         javax.swing.GroupLayout pnClientesLayout = new javax.swing.GroupLayout(pnClientes);
         pnClientes.setLayout(pnClientesLayout);
         pnClientesLayout.setHorizontalGroup(
             pnClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
+            .addGroup(pnClientesLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(buttonAdicionarCliente)
+                .addGap(185, 185, 185)
+                .addGroup(pnClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnClientesLayout.createSequentialGroup()
+                        .addComponent(labelTituloCliente)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnClientesLayout.createSequentialGroup()
+                        .addComponent(buttonEditarCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                        .addComponent(buttonExcluirCliente)
+                        .addGap(113, 113, 113))))
+            .addComponent(jScrollPane2)
         );
         pnClientesLayout.setVerticalGroup(
             pnClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(pnClientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloCliente)
+                .addGap(18, 18, 18)
+                .addGroup(pnClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonAdicionarCliente)
+                    .addComponent(buttonEditarCliente)
+                    .addComponent(buttonExcluirCliente))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
         );
 
-        pnVendas.setBackground(new java.awt.Color(255, 255, 51));
+        pnVendas.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelTituloVendas.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        labelTituloVendas.setText("Vendas");
+
+        buttonAdicionarVenda.setText("Adicionar");
+
+        buttonEditarVenda.setText("Editar");
+
+        buttonExcluirVenda.setText("Excluir");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
 
         javax.swing.GroupLayout pnVendasLayout = new javax.swing.GroupLayout(pnVendas);
         pnVendas.setLayout(pnVendasLayout);
         pnVendasLayout.setHorizontalGroup(
             pnVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
+            .addGroup(pnVendasLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(buttonAdicionarVenda)
+                .addGap(202, 202, 202)
+                .addGroup(pnVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnVendasLayout.createSequentialGroup()
+                        .addComponent(labelTituloVendas)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnVendasLayout.createSequentialGroup()
+                        .addComponent(buttonEditarVenda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                        .addComponent(buttonExcluirVenda)
+                        .addGap(99, 99, 99))))
+            .addComponent(jScrollPane3)
         );
         pnVendasLayout.setVerticalGroup(
             pnVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(pnVendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloVendas)
+                .addGap(18, 18, 18)
+                .addGroup(pnVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonAdicionarVenda)
+                    .addComponent(buttonEditarVenda)
+                    .addComponent(buttonExcluirVenda))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
         );
 
-        pnUsuarios.setBackground(new java.awt.Color(255, 153, 153));
+        pnUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelTituloUsuarios.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        labelTituloUsuarios.setText("Usuários");
+
+        buttonAdicionarUsuario.setText("Adicionar");
+
+        buttonEditarUsuarios.setText("Editar");
+
+        buttonExcluirUsuarios.setText("Excluir");
+
+        tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tableUsuarios);
 
         javax.swing.GroupLayout pnUsuariosLayout = new javax.swing.GroupLayout(pnUsuarios);
         pnUsuarios.setLayout(pnUsuariosLayout);
         pnUsuariosLayout.setHorizontalGroup(
             pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
+            .addGroup(pnUsuariosLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(buttonAdicionarUsuario)
+                .addGap(188, 188, 188)
+                .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnUsuariosLayout.createSequentialGroup()
+                        .addComponent(labelTituloUsuarios)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnUsuariosLayout.createSequentialGroup()
+                        .addComponent(buttonEditarUsuarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                        .addComponent(buttonExcluirUsuarios)
+                        .addGap(108, 108, 108))))
+            .addComponent(jScrollPane4)
         );
         pnUsuariosLayout.setVerticalGroup(
             pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(pnUsuariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloUsuarios)
+                .addGap(18, 18, 18)
+                .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonAdicionarUsuario)
+                    .addComponent(buttonEditarUsuarios)
+                    .addComponent(buttonExcluirUsuarios))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelPrincipalHomeLayout = new javax.swing.GroupLayout(panelPrincipalHome);
@@ -427,6 +637,14 @@ public class FormHome extends javax.swing.JFrame {
         pnVendas.setVisible(false);
     }//GEN-LAST:event_buttonUsuariosMouseClicked
 
+    private void buttonExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonExcluirProdutoActionPerformed
+
+    private void buttonAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAdicionarClienteActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -450,7 +668,19 @@ public class FormHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAdicionarCliente;
+    private javax.swing.JButton buttonAdicionarProduto;
+    private javax.swing.JButton buttonAdicionarUsuario;
+    private javax.swing.JButton buttonAdicionarVenda;
     private javax.swing.JButton buttonClientes;
+    private javax.swing.JButton buttonEditarCliente;
+    private javax.swing.JButton buttonEditarProduto;
+    private javax.swing.JButton buttonEditarUsuarios;
+    private javax.swing.JButton buttonEditarVenda;
+    private javax.swing.JButton buttonExcluirCliente;
+    private javax.swing.JButton buttonExcluirProduto;
+    private javax.swing.JButton buttonExcluirUsuarios;
+    private javax.swing.JButton buttonExcluirVenda;
     private javax.swing.JButton buttonHome;
     private javax.swing.JButton buttonProdutos;
     private javax.swing.JButton buttonSair;
@@ -462,7 +692,16 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelLogoGestock;
+    private javax.swing.JLabel labelTituloCliente;
+    private javax.swing.JLabel labelTituloProduto;
+    private javax.swing.JLabel labelTituloUsuarios;
+    private javax.swing.JLabel labelTituloVendas;
     private javax.swing.JPanel panelClientes;
     private javax.swing.JPanel panelDadosHome;
     private javax.swing.JPanel panelMenu;
@@ -473,5 +712,8 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JPanel pnProdutos;
     private javax.swing.JPanel pnUsuarios;
     private javax.swing.JPanel pnVendas;
+    private javax.swing.JTable tableClientes;
+    private javax.swing.JTable tableProdutos;
+    private javax.swing.JTable tableUsuarios;
     // End of variables declaration//GEN-END:variables
 }
