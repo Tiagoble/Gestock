@@ -380,15 +380,22 @@ public class FormHome extends javax.swing.JFrame {
         });
 
         buttonEditarCliente.setText("Editar");
+        buttonEditarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditarClienteActionPerformed(evt);
+            }
+        });
 
         buttonExcluirCliente.setText("Excluir");
+        buttonExcluirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirClienteActionPerformed(evt);
+            }
+        });
 
         tableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "id", "nome", "telefone", "endereco"
@@ -647,7 +654,8 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonExcluirProdutoActionPerformed
 
     private void buttonAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarClienteActionPerformed
-        // TODO add your handling code here:
+        FormAdicionarCliente addCliente = new FormAdicionarCliente();
+        addCliente.setVisible(true);
     }//GEN-LAST:event_buttonAdicionarClienteActionPerformed
 
     private void buttonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarProdutoActionPerformed
@@ -659,6 +667,17 @@ public class FormHome extends javax.swing.JFrame {
         FormEditarProduto editarProduto = new FormEditarProduto();
         editarProduto.setVisible(true);
     }//GEN-LAST:event_buttonEditarProdutoActionPerformed
+
+    private void buttonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarClienteActionPerformed
+        FormEditarCliente editarCliente = new FormEditarCliente();
+        editarCliente.setVisible(true);
+    }//GEN-LAST:event_buttonEditarClienteActionPerformed
+
+    private void buttonExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirClienteActionPerformed
+        if(tableClientes.getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um Cliente para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_buttonExcluirClienteActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
