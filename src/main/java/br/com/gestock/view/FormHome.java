@@ -1,5 +1,7 @@
 package br.com.gestock.view;
 
+import javax.swing.JOptionPane;
+
 public class FormHome extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormHome.class.getName());
@@ -51,7 +53,7 @@ public class FormHome extends javax.swing.JFrame {
         buttonEditarVenda = new javax.swing.JButton();
         buttonExcluirVenda = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableVendas = new javax.swing.JTable();
         pnUsuarios = new javax.swing.JPanel();
         labelTituloUsuarios = new javax.swing.JLabel();
         buttonAdicionarUsuario = new javax.swing.JButton();
@@ -302,8 +304,18 @@ public class FormHome extends javax.swing.JFrame {
         labelTituloProduto.setText("Produtos");
 
         buttonAdicionarProduto.setText("Adicionar");
+        buttonAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdicionarProdutoActionPerformed(evt);
+            }
+        });
 
         buttonEditarProduto.setText("Editar");
+        buttonEditarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditarProdutoActionPerformed(evt);
+            }
+        });
 
         buttonExcluirProduto.setText("Excluir");
         buttonExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -314,13 +326,10 @@ public class FormHome extends javax.swing.JFrame {
 
         tableProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "nome", "preco", "categoria"
             }
         ));
         jScrollPane1.setViewportView(tableProdutos);
@@ -382,7 +391,7 @@ public class FormHome extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "nome", "telefone", "endereco"
             }
         ));
         jScrollPane2.setViewportView(tableClientes);
@@ -431,18 +440,15 @@ public class FormHome extends javax.swing.JFrame {
 
         buttonExcluirVenda.setText("Excluir");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "cliente", "produto", "quantidade", "total", "vendido por"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tableVendas);
 
         javax.swing.GroupLayout pnVendasLayout = new javax.swing.GroupLayout(pnVendas);
         pnVendas.setLayout(pnVendasLayout);
@@ -490,13 +496,10 @@ public class FormHome extends javax.swing.JFrame {
 
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "username", "nivel"
             }
         ));
         jScrollPane4.setViewportView(tableUsuarios);
@@ -638,12 +641,24 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonUsuariosMouseClicked
 
     private void buttonExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirProdutoActionPerformed
-        // TODO add your handling code here:
+        if(tableProdutos.getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um item para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_buttonExcluirProdutoActionPerformed
 
     private void buttonAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonAdicionarClienteActionPerformed
+
+    private void buttonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarProdutoActionPerformed
+        FormAdicionarProduto addProduto = new FormAdicionarProduto();
+        addProduto.setVisible(true);
+    }//GEN-LAST:event_buttonAdicionarProdutoActionPerformed
+
+    private void buttonEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarProdutoActionPerformed
+        FormEditarProduto editarProduto = new FormEditarProduto();
+        editarProduto.setVisible(true);
+    }//GEN-LAST:event_buttonEditarProdutoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -696,7 +711,6 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelLogoGestock;
     private javax.swing.JLabel labelTituloCliente;
     private javax.swing.JLabel labelTituloProduto;
@@ -715,5 +729,6 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JTable tableClientes;
     private javax.swing.JTable tableProdutos;
     private javax.swing.JTable tableUsuarios;
+    private javax.swing.JTable tableVendas;
     // End of variables declaration//GEN-END:variables
 }

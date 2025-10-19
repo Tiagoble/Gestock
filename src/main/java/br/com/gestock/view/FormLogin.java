@@ -85,11 +85,9 @@ public class FormLogin extends javax.swing.JFrame {
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 370, 10));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 370, 10));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/key.png"))); // NOI18N
         jLabel1.setToolTipText("Password");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 40, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
         jLabel2.setToolTipText("Login");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 40, 40));
 
