@@ -442,17 +442,32 @@ public class FormHome extends javax.swing.JFrame {
         labelTituloVendas.setText("Vendas");
 
         buttonAdicionarVenda.setText("Adicionar");
+        buttonAdicionarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdicionarVendaActionPerformed(evt);
+            }
+        });
 
         buttonEditarVenda.setText("Editar");
+        buttonEditarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditarVendaActionPerformed(evt);
+            }
+        });
 
         buttonExcluirVenda.setText("Excluir");
+        buttonExcluirVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirVendaActionPerformed(evt);
+            }
+        });
 
         tableVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "cliente", "produto", "quantidade", "total", "vendido por"
+                "id", "cliente", "produto", "quantidade", "total", "data"
             }
         ));
         jScrollPane3.setViewportView(tableVendas);
@@ -678,6 +693,22 @@ public class FormHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione um Cliente para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirClienteActionPerformed
+
+    private void buttonAdicionarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarVendaActionPerformed
+        FormAdicionarVenda addVenda = new FormAdicionarVenda();
+        addVenda.setVisible(true);
+    }//GEN-LAST:event_buttonAdicionarVendaActionPerformed
+
+    private void buttonEditarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarVendaActionPerformed
+        FormEditarVenda editarVenda = new FormEditarVenda();
+        editarVenda.setVisible(true);
+    }//GEN-LAST:event_buttonEditarVendaActionPerformed
+
+    private void buttonExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirVendaActionPerformed
+        if(tableVendas.getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma Venda para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_buttonExcluirVendaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
