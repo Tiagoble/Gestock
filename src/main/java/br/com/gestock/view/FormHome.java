@@ -511,10 +511,25 @@ public class FormHome extends javax.swing.JFrame {
         labelTituloUsuarios.setText("Usuários");
 
         buttonAdicionarUsuario.setText("Adicionar");
+        buttonAdicionarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdicionarUsuarioActionPerformed(evt);
+            }
+        });
 
         buttonEditarUsuarios.setText("Editar");
+        buttonEditarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditarUsuariosActionPerformed(evt);
+            }
+        });
 
         buttonExcluirUsuarios.setText("Excluir");
+        buttonExcluirUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirUsuariosActionPerformed(evt);
+            }
+        });
 
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -709,6 +724,22 @@ public class FormHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione uma Venda para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirVendaActionPerformed
+
+    private void buttonAdicionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarUsuarioActionPerformed
+        FormAdicionarUsuario addUsuario = new FormAdicionarUsuario();
+        addUsuario.setVisible(true);
+    }//GEN-LAST:event_buttonAdicionarUsuarioActionPerformed
+
+    private void buttonEditarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarUsuariosActionPerformed
+        FormEditarUsuario editarUsuario = new FormEditarUsuario();
+        editarUsuario.setVisible(true);
+    }//GEN-LAST:event_buttonEditarUsuariosActionPerformed
+
+    private void buttonExcluirUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirUsuariosActionPerformed
+        if(tableUsuarios.getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um Usuário para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_buttonExcluirUsuariosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
