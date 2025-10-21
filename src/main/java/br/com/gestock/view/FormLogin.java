@@ -1,4 +1,7 @@
 package br.com.gestock.view;
+import br.com.gestock.dao.UsuariosDAO;
+import br.com.gestock.model.NivelAcesso;
+import br.com.gestock.model.Usuarios;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,10 +14,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.swing.JOptionPane;
 import br.com.gestock.util.CSVManager;
+import br.com.gestock.util.Criptografia;
 
 public class FormLogin extends javax.swing.JFrame {
-    private static final String NOME_ARQUIVO = "usuarios.csv";
-    private static final String SEPARADOR = ",";
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormLogin.class.getName());
 
@@ -42,6 +44,7 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblExit = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
+        cmbNivel = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +116,7 @@ public class FormLogin extends javax.swing.JFrame {
             .addComponent(buttonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 150, 50));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 150, 50));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -140,10 +143,10 @@ public class FormLogin extends javax.swing.JFrame {
             .addComponent(buttonCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 150, -1));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 150, -1));
 
         jLabel5.setText("Forgot?");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, -1, -1));
 
         lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/exit.png"))); // NOI18N
         lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,6 +166,11 @@ public class FormLogin extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 390, 40));
+
+        cmbNivel.setBackground(new java.awt.Color(255, 255, 255));
+        cmbNivel.setForeground(new java.awt.Color(0, 0, 0));
+        cmbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Operador", "Padrao" }));
+        jPanel3.add(cmbNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 370, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -203,21 +211,23 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginFocusGained
 
     private void buttonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLoginMouseClicked
-        String login = txtLogin.getText();
-        String senha = new String(txtPassword.getText());
-        
-        if (login.isEmpty() || senha.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, preencha Login e Senha.", "Aviso", JOptionPane.WARNING_MESSAGE);
-            return;
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        String username = txtLogin.getText();
+        String password = Criptografia.getMD5(txtPassword.getText());
+        Usuarios usuario = null;
+        if(username == null || username.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Os Campos não podem ficar vázios.","Erro ao realizar login.", JOptionPane.WARNING_MESSAGE);
+        }else{
+            usuario = usuariosDAO.validarLogin(username, password);
         }
-
-        if (CSVManager.realizarLogin(login, senha)) {
-            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!", "Bem-Vindo", JOptionPane.INFORMATION_MESSAGE);
+        
+        if(usuario == null){
+            JOptionPane.showMessageDialog(null, "Erro ao realizar login.","Erro no Login", JOptionPane.WARNING_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Login realizado.");
             FormHome home = new FormHome();
             home.setVisible(true);
             this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Login ou senha incorretos.", "Erro de Login", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonLoginMouseClicked
 
@@ -226,19 +236,28 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordMouseClicked
 
     private void buttonCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastroMouseClicked
-        String login = txtLogin.getText();
-        String senha = new String(txtPassword.getText()); 
+        String username = txtLogin.getText();
+        String password = txtPassword.getText();
+        String nivel = cmbNivel.getSelectedItem().toString();
         
-        if (login.isEmpty() || senha.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, preencha Login e Senha.", "Aviso", JOptionPane.WARNING_MESSAGE);
-            return;
+        if(password == null || password.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Os Campos não podem ficar vázios.","Erro ao realizar cadastro.", JOptionPane.WARNING_MESSAGE);
+        }else{
+            password = Criptografia.getMD5(txtPassword.getText());
         }
-
-        if (CSVManager.cadastrarUsuario(login, senha)) {
-            JOptionPane.showMessageDialog(null, "Usuário " + login + " cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            txtLogin.setText("");
-            txtPassword.setText("");
-        } else {
+        
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        Usuarios usuario = new Usuarios();
+        
+        if((username == null || username.isEmpty()) && (password == null || password.isEmpty())){
+            JOptionPane.showMessageDialog(null, "Tente novamente!");
+        }else{
+            usuario.setUsername(username);
+            usuario.setPassword_hash(password);
+            usuario.setNivelAcesso(NivelAcesso.valueOf(nivel));
+            
+            usuariosDAO.cadastrar(usuario);
+            JOptionPane.showMessageDialog(null, "Cadastro realizado!");
         }
     }//GEN-LAST:event_buttonCadastroMouseClicked
 
@@ -267,6 +286,7 @@ public class FormLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel buttonCadastro;
     private javax.swing.JLabel buttonLogin;
+    private javax.swing.JComboBox<String> cmbNivel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
