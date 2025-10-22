@@ -5,6 +5,7 @@
                  xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
     <persistence-unit name="Gestock-PU">
         <class>br.com.gestock.model.Usuarios</class>
+        <class>br.com.gestock.model.Produtos</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/Gestock" />
