@@ -1,6 +1,8 @@
 package br.com.gestock.view;
 
+import br.com.gestock.dao.ProdutosDAO;
 import br.com.gestock.dao.UsuariosDAO;
+import br.com.gestock.model.Produtos;
 import br.com.gestock.model.Usuarios;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -637,11 +639,12 @@ public class FormHome extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void preenchertabelas() {
+    private void preencherUsuarios() {
         DefaultTableModel modelUsuarios = (DefaultTableModel) tableUsuarios.getModel();
         modelUsuarios.setRowCount(0);
 
         UsuariosDAO usuariosDAO = new UsuariosDAO();
+
         List<Usuarios> listaUsuarios = usuariosDAO.getUsuarios();
         if (listaUsuarios != null) {
             for (Usuarios usuario : listaUsuarios) {
@@ -649,8 +652,26 @@ public class FormHome extends javax.swing.JFrame {
                 };
                 modelUsuarios.addRow(linha);
             }
-        }else{
+        } else {
             System.out.println("Não foi possível carregar a lista de usuários do banco.");
+        }
+    }
+
+    public void preencherProdutos() {
+        DefaultTableModel modelProdutos = (DefaultTableModel) tableProdutos.getModel();
+
+        modelProdutos.setRowCount(0);
+
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        
+        List<Produtos> listaProdutos = produtosDAO.getProdutos();
+        if (listaProdutos != null) {
+            for (Produtos produtos : listaProdutos) {
+                Object[] linha = {produtos.getId(), produtos.getNome(), produtos.getPreco(), produtos.getCategoria()};
+                modelProdutos.addRow(linha);
+            }
+        }else{
+            System.out.println("Não foi possível carregar a lista de produtos do banco.");
         }
     }
 
@@ -672,6 +693,7 @@ public class FormHome extends javax.swing.JFrame {
         panelDadosHome.setVisible(false);
         pnUsuarios.setVisible(false);
         pnVendas.setVisible(false);
+        preencherProdutos();
     }//GEN-LAST:event_buttonProdutosMouseClicked
 
     private void buttonClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonClientesMouseClicked
@@ -696,7 +718,7 @@ public class FormHome extends javax.swing.JFrame {
         panelDadosHome.setVisible(false);
         pnProdutos.setVisible(false);
         pnVendas.setVisible(false);
-        preenchertabelas();
+        preencherUsuarios();
     }//GEN-LAST:event_buttonUsuariosMouseClicked
 
     private void buttonExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirProdutoActionPerformed
