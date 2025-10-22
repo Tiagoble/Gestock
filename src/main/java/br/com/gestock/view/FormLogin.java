@@ -2,18 +2,7 @@ package br.com.gestock.view;
 import br.com.gestock.dao.UsuariosDAO;
 import br.com.gestock.model.NivelAcesso;
 import br.com.gestock.model.Usuarios;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.swing.JOptionPane;
-import br.com.gestock.util.CSVManager;
 import br.com.gestock.util.Criptografia;
 
 public class FormLogin extends javax.swing.JFrame {

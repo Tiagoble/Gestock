@@ -4,7 +4,10 @@ import br.com.gestock.model.Usuarios;
 import br.com.gestock.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuariosDAO {
     
@@ -36,6 +39,20 @@ public class UsuariosDAO {
             return null;
         }catch(Exception e){
             System.out.println("Erro ao validar login. "+e.getMessage());
+            return null;
+        }finally{
+            JPAUtil.closeEntityManager();
+        }
+    }
+    
+    public List<Usuarios> getUsuarios(){
+        EntityManager manager = JPAUtil.getEntityManager();
+        String jpql = "SELECT u FROM Usuarios u";
+        try{
+            Query query = manager.createQuery(jpql, Usuarios.class);
+            return query.getResultList();
+        }catch(Exception e){
+            System.out.println("Erro no retorno de usuarios.");
             return null;
         }finally{
             JPAUtil.closeEntityManager();

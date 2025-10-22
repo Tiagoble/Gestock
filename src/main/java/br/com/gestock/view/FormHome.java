@@ -1,9 +1,13 @@
 package br.com.gestock.view;
 
+import br.com.gestock.dao.UsuariosDAO;
+import br.com.gestock.model.Usuarios;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class FormHome extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormHome.class.getName());
 
     public FormHome() {
@@ -633,6 +637,23 @@ public class FormHome extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void preenchertabelas() {
+        DefaultTableModel modelUsuarios = (DefaultTableModel) tableUsuarios.getModel();
+        modelUsuarios.setRowCount(0);
+
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        List<Usuarios> listaUsuarios = usuariosDAO.getUsuarios();
+        if (listaUsuarios != null) {
+            for (Usuarios usuario : listaUsuarios) {
+                Object[] linha = {usuario.getId(), usuario.getUsername(), usuario.getNivelAcesso()
+                };
+                modelUsuarios.addRow(linha);
+            }
+        }else{
+            System.out.println("Não foi possível carregar a lista de usuários do banco.");
+        }
+    }
+
     private void buttonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_buttonSairActionPerformed
@@ -675,10 +696,11 @@ public class FormHome extends javax.swing.JFrame {
         panelDadosHome.setVisible(false);
         pnProdutos.setVisible(false);
         pnVendas.setVisible(false);
+        preenchertabelas();
     }//GEN-LAST:event_buttonUsuariosMouseClicked
 
     private void buttonExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirProdutoActionPerformed
-        if(tableProdutos.getSelectedRow() < 0){
+        if (tableProdutos.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Selecione um item para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirProdutoActionPerformed
@@ -704,7 +726,7 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditarClienteActionPerformed
 
     private void buttonExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirClienteActionPerformed
-        if(tableClientes.getSelectedRow() < 0){
+        if (tableClientes.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Selecione um Cliente para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirClienteActionPerformed
@@ -720,7 +742,7 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditarVendaActionPerformed
 
     private void buttonExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirVendaActionPerformed
-        if(tableVendas.getSelectedRow() < 0){
+        if (tableVendas.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Selecione uma Venda para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirVendaActionPerformed
@@ -736,7 +758,7 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditarUsuariosActionPerformed
 
     private void buttonExcluirUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirUsuariosActionPerformed
-        if(tableUsuarios.getSelectedRow() < 0){
+        if (tableUsuarios.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Selecione um Usuário para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirUsuariosActionPerformed
