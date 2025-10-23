@@ -1,7 +1,9 @@
 package br.com.gestock.view;
 
+import br.com.gestock.dao.ClientesDAO;
 import br.com.gestock.dao.ProdutosDAO;
 import br.com.gestock.dao.UsuariosDAO;
+import br.com.gestock.model.Clientes;
 import br.com.gestock.model.Produtos;
 import br.com.gestock.model.Usuarios;
 import java.util.List;
@@ -674,6 +676,23 @@ public class FormHome extends javax.swing.JFrame {
             System.out.println("Não foi possível carregar a lista de produtos do banco.");
         }
     }
+    
+    public void preencherClientes(){
+        DefaultTableModel modelClientes = (DefaultTableModel) tableClientes.getModel();
+        modelClientes.setRowCount(0);
+        
+        ClientesDAO clientesDAO = new ClientesDAO();
+        
+        List<Clientes> listaClientes = clientesDAO.getClientes();
+        if(listaClientes != null){
+            for(Clientes clientes : listaClientes){
+                Object[] linha = {clientes.getId(), clientes.getNome(), clientes.getTelefone(), clientes.getEndereco()};
+                modelClientes.addRow(linha);
+            }
+        }else{
+            System.out.println("Não foi possível carregar a lista de clientes.");
+        }
+    }
 
     private void buttonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairActionPerformed
         System.exit(0);
@@ -702,6 +721,7 @@ public class FormHome extends javax.swing.JFrame {
         panelDadosHome.setVisible(false);
         pnUsuarios.setVisible(false);
         pnVendas.setVisible(false);
+        preencherClientes();
     }//GEN-LAST:event_buttonClientesMouseClicked
 
     private void buttonVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVendasMouseClicked

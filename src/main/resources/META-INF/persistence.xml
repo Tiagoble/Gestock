@@ -6,6 +6,7 @@
     <persistence-unit name="Gestock-PU">
         <class>br.com.gestock.model.Usuarios</class>
         <class>br.com.gestock.model.Produtos</class>
+        <class>br.com.gestock.model.Clientes</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/Gestock" />
