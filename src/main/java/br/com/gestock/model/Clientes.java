@@ -49,5 +49,9 @@ public class Clientes {
         this.endereco = endereco;
     }
     
+    @Override
+    public String toString() {
+        return this.nome;
+    }
     
 }

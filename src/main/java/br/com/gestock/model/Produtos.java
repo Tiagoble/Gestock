@@ -50,5 +50,8 @@ public class Produtos {
         this.categoria = categoria;
     }
     
-    
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }
