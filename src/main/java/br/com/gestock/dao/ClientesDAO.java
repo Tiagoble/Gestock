@@ -36,4 +36,18 @@ public class ClientesDAO {
             JPAUtil.closeEntityManager();
         }
     }
+    
+    public void atualizar(Clientes cliente){
+        EntityManager manager = JPAUtil.getEntityManager();
+        try{
+            manager.getTransaction().begin();
+            manager.merge(cliente);
+            manager.getTransaction().commit();
+        }catch(Exception ex){
+            manager.getTransaction().rollback();
+            System.out.println("Erro ao atualizar clientes. "+ex.getMessage());
+        }finally{
+            JPAUtil.closeEntityManager();
+        }
+    }
 }
