@@ -35,4 +35,18 @@ public class ProdutosDAO {
             JPAUtil.closeEntityManager();
         }
     }
+    
+    public void atualizar(Produtos produto){
+        EntityManager manager = JPAUtil.getEntityManager();
+        try{
+            manager.getTransaction().begin();
+            manager.merge(produto);
+            manager.getTransaction().commit();
+        }catch(Exception ex){
+            manager.getTransaction().rollback();
+            System.out.println("Erro ao atualizar produto. "+ex.getMessage());
+        }finally{
+            JPAUtil.closeEntityManager();
+        }
+    }
 }
