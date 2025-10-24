@@ -35,4 +35,18 @@ public class VendasDAO {
             JPAUtil.closeEntityManager();
         }
     }
+    
+    public void atualizar(Vendas venda){
+        EntityManager manager = JPAUtil.getEntityManager();
+        try{
+            manager.getTransaction().begin();
+            manager.merge(venda);
+            manager.getTransaction().commit();
+        }catch(Exception ex){
+            manager.getTransaction().rollback();
+            System.out.println("Erro ao atualizar venda. "+ex.getMessage());
+        }finally{
+            JPAUtil.closeEntityManager();
+        }
+    }
 }

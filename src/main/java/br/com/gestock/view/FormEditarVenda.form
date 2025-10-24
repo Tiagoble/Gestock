@@ -51,12 +51,12 @@
                           <Group type="102" attributes="0">
                               <Component id="labelProduto" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cmbProduto" max="32767" attributes="0"/>
+                              <Component id="comboProduto" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="labelCliente" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cmbCliente" max="32767" attributes="0"/>
+                              <Component id="comboCliente" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="labelID" min="-2" max="-2" attributes="0"/>
@@ -87,12 +87,12 @@
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboCliente" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboProduto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -137,19 +137,14 @@
         <Property name="text" type="java.lang.String" value="CLIENTE:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbCliente">
+    <Component class="javax.swing.JComboBox" name="comboCliente">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Clientes&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelProduto">
@@ -157,19 +152,14 @@
         <Property name="text" type="java.lang.String" value="PRODUTO:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbProduto">
+    <Component class="javax.swing.JComboBox" name="comboProduto">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Produtos&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelQuantidade">
@@ -178,6 +168,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtQuantidade">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtQuantidadeFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTotal">
       <Properties>
@@ -200,6 +193,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="EDITAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
