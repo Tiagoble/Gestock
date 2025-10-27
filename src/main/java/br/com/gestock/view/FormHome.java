@@ -18,6 +18,17 @@ public class FormHome extends javax.swing.JFrame {
 
     public FormHome() {
         initComponents();
+        panelDadosHome.setVisible(true);
+        pnClientes.setVisible(false);
+        pnProdutos.setVisible(false);
+        pnUsuarios.setVisible(false);
+        pnVendas.setVisible(false);
+        preencherVendas();
+        preencherClientes();
+        preencherProdutos();
+        labelClientesCount.setText(String.valueOf(tableClientes.getRowCount()));
+        labelProdutosCount.setText(String.valueOf(tableProdutos.getRowCount()));
+        labelVendasCount.setText(String.valueOf(tableVendas.getRowCount()));
     }
 
     @SuppressWarnings("unchecked")
@@ -28,13 +39,13 @@ public class FormHome extends javax.swing.JFrame {
         panelDadosHome = new javax.swing.JPanel();
         panelProdutos = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        labelProdutosCount = new javax.swing.JLabel();
         panelClientes = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        labelClientesCount = new javax.swing.JLabel();
         panelVendas = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        labelVendasCount = new javax.swing.JLabel();
         panelMenu = new javax.swing.JPanel();
         labelLogoGestock = new javax.swing.JLabel();
         buttonHome = new javax.swing.JButton();
@@ -88,9 +99,9 @@ public class FormHome extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produtos.png"))); // NOI18N
         jLabel8.setText("PRODUTOS");
 
-        jLabel9.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("0");
+        labelProdutosCount.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
+        labelProdutosCount.setForeground(new java.awt.Color(255, 255, 255));
+        labelProdutosCount.setText("0");
 
         javax.swing.GroupLayout panelProdutosLayout = new javax.swing.GroupLayout(panelProdutos);
         panelProdutos.setLayout(panelProdutosLayout);
@@ -98,7 +109,7 @@ public class FormHome extends javax.swing.JFrame {
             panelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProdutosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
+                .addComponent(labelProdutosCount)
                 .addGap(38, 38, 38))
             .addGroup(panelProdutosLayout.createSequentialGroup()
                 .addContainerGap()
@@ -111,7 +122,7 @@ public class FormHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelProdutosCount, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 33, Short.MAX_VALUE))
         );
 
@@ -124,9 +135,9 @@ public class FormHome extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/clientes.png"))); // NOI18N
         jLabel10.setText("CLIENTES");
 
-        jLabel11.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("0");
+        labelClientesCount.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
+        labelClientesCount.setForeground(new java.awt.Color(255, 255, 255));
+        labelClientesCount.setText("0");
 
         javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
         panelClientes.setLayout(panelClientesLayout);
@@ -138,7 +149,7 @@ public class FormHome extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11)
+                .addComponent(labelClientesCount)
                 .addGap(36, 36, 36))
         );
         panelClientesLayout.setVerticalGroup(
@@ -147,7 +158,7 @@ public class FormHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelClientesCount, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -159,9 +170,9 @@ public class FormHome extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/vendas.png"))); // NOI18N
         jLabel12.setText("VENDAS");
 
-        jLabel13.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("0");
+        labelVendasCount.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
+        labelVendasCount.setForeground(new java.awt.Color(255, 255, 255));
+        labelVendasCount.setText("0");
 
         javax.swing.GroupLayout panelVendasLayout = new javax.swing.GroupLayout(panelVendas);
         panelVendas.setLayout(panelVendasLayout);
@@ -173,7 +184,7 @@ public class FormHome extends javax.swing.JFrame {
                 .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVendasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
+                .addComponent(labelVendasCount)
                 .addGap(32, 32, 32))
         );
         panelVendasLayout.setVerticalGroup(
@@ -182,7 +193,7 @@ public class FormHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelVendasCount, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -722,6 +733,10 @@ public class FormHome extends javax.swing.JFrame {
         pnProdutos.setVisible(false);
         pnUsuarios.setVisible(false);
         pnVendas.setVisible(false);
+        
+        labelClientesCount.setText(String.valueOf(tableClientes.getRowCount()));
+        labelProdutosCount.setText(String.valueOf(tableProdutos.getRowCount()));
+        labelVendasCount.setText(String.valueOf(tableVendas.getRowCount()));
     }//GEN-LAST:event_buttonHomeMouseClicked
 
     private void buttonProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonProdutosMouseClicked
@@ -905,20 +920,20 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonUsuarios;
     private javax.swing.JButton buttonVendas;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel labelClientesCount;
     private javax.swing.JLabel labelLogoGestock;
+    private javax.swing.JLabel labelProdutosCount;
     private javax.swing.JLabel labelTituloCliente;
     private javax.swing.JLabel labelTituloProduto;
     private javax.swing.JLabel labelTituloUsuarios;
     private javax.swing.JLabel labelTituloVendas;
+    private javax.swing.JLabel labelVendasCount;
     private javax.swing.JPanel panelClientes;
     private javax.swing.JPanel panelDadosHome;
     private javax.swing.JPanel panelMenu;
