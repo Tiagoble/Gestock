@@ -829,8 +829,21 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditarVendaActionPerformed
 
     private void buttonExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirVendaActionPerformed
-        if (tableVendas.getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(null, "Selecione uma Venda para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
+        int linhaSelecionadaView = tableVendas.getSelectedRow();
+        if (linhaSelecionadaView != -1){
+            int linhaSelecionadaModel = tableVendas.convertRowIndexToModel(linhaSelecionadaView);
+            
+            Object valorID = tableVendas.getModel().getValueAt(linhaSelecionadaModel, COLUNA_DO_ID);
+            
+            try {
+                int id = (int) valorID;
+                VendasDAO vendasDAO = new VendasDAO();
+                vendasDAO.deletar(id);
+            } catch (ClassCastException ex) {
+                System.err.println("Erro ao converter o valor do ID.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione um item para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirVendaActionPerformed
 
