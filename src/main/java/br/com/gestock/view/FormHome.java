@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FormHome extends javax.swing.JFrame {
-
+    final int COLUNA_DO_ID = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormHome.class.getName());
 
     public FormHome() {
@@ -761,7 +761,20 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonUsuariosMouseClicked
 
     private void buttonExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirProdutoActionPerformed
-        if (tableProdutos.getSelectedRow() < 0) {
+        int linhaSelecionadaView = tableProdutos.getSelectedRow();
+        if (linhaSelecionadaView != -1){
+            int linhaSelecionadaModel = tableProdutos.convertRowIndexToModel(linhaSelecionadaView);
+            
+            Object valorID = tableProdutos.getModel().getValueAt(linhaSelecionadaModel, COLUNA_DO_ID);
+            
+            try {
+                int id = (int) valorID;
+                ProdutosDAO produtosDAO = new ProdutosDAO();
+                produtosDAO.deletar(id);
+            } catch (ClassCastException ex) {
+                System.err.println("Erro ao converter o valor do ID.");
+            }
+        }else{
             JOptionPane.showMessageDialog(null, "Selecione um item para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirProdutoActionPerformed
