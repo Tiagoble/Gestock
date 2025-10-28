@@ -5,6 +5,7 @@ import br.com.gestock.dao.ProdutosDAO;
 import br.com.gestock.dao.UsuariosDAO;
 import br.com.gestock.dao.VendasDAO;
 import br.com.gestock.model.Clientes;
+import br.com.gestock.model.NivelAcesso;
 import br.com.gestock.model.Produtos;
 import br.com.gestock.model.Usuarios;
 import br.com.gestock.model.Vendas;
@@ -29,6 +30,10 @@ public class FormHome extends javax.swing.JFrame {
         labelClientesCount.setText(String.valueOf(tableClientes.getRowCount()));
         labelProdutosCount.setText(String.valueOf(tableProdutos.getRowCount()));
         labelVendasCount.setText(String.valueOf(tableVendas.getRowCount()));
+        
+        if(FormLogin.usuario.getNivelAcesso() == NivelAcesso.Padrao || FormLogin.usuario.getNivelAcesso() == NivelAcesso.Operador){
+            buttonUsuarios.setEnabled(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -272,6 +277,11 @@ public class FormHome extends javax.swing.JFrame {
         buttonUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonUsuariosMouseClicked(evt);
+            }
+        });
+        buttonUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUsuariosActionPerformed(evt);
             }
         });
 
@@ -759,12 +769,7 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVendasMouseClicked
 
     private void buttonUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUsuariosMouseClicked
-        pnUsuarios.setVisible(true);
-        pnClientes.setVisible(false);
-        panelDadosHome.setVisible(false);
-        pnProdutos.setVisible(false);
-        pnVendas.setVisible(false);
-        preencherUsuarios();
+
     }//GEN-LAST:event_buttonUsuariosMouseClicked
 
     private void buttonExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirProdutoActionPerformed
@@ -881,6 +886,15 @@ public class FormHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione um item para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirUsuariosActionPerformed
+
+    private void buttonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUsuariosActionPerformed
+        pnUsuarios.setVisible(true);
+        pnClientes.setVisible(false);
+        panelDadosHome.setVisible(false);
+        pnProdutos.setVisible(false);
+        pnVendas.setVisible(false);
+        preencherUsuarios();
+    }//GEN-LAST:event_buttonUsuariosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

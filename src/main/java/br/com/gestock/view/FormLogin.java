@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import br.com.gestock.util.Criptografia;
 
 public class FormLogin extends javax.swing.JFrame {
-    
+    public static Usuarios usuario = null;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormLogin.class.getName());
 
     public FormLogin() {
@@ -203,7 +203,6 @@ public class FormLogin extends javax.swing.JFrame {
         UsuariosDAO usuariosDAO = new UsuariosDAO();
         String username = txtLogin.getText();
         String password = Criptografia.getMD5(txtPassword.getText());
-        Usuarios usuario = null;
         if(username == null || username.isEmpty()){
             JOptionPane.showMessageDialog(null, "Os Campos não podem ficar vázios.","Erro ao realizar login.", JOptionPane.WARNING_MESSAGE);
         }else{
