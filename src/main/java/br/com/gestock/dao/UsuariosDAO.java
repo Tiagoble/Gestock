@@ -3,6 +3,7 @@ package br.com.gestock.dao;
 import br.com.gestock.model.Usuarios;
 import br.com.gestock.util.JPAUtil;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
@@ -83,6 +84,25 @@ public class UsuariosDAO {
             return null;
         }finally{
             JPAUtil.closeEntityManager();
+        }
+    }
+    
+    public void deletar(int id){
+        EntityManager manager = JPAUtil.getEntityManager();
+        Usuarios usuario = manager.find(Usuarios.class, id);
+        if (usuario != null) {
+            try {
+                manager.getTransaction().begin();
+                manager.remove(usuario);
+                manager.getTransaction().commit();
+            } catch (Exception ex) {
+                manager.getTransaction().rollback();
+                System.out.println("Erro ao deletar usuário. " + ex.getMessage());
+            } finally {
+                JPAUtil.closeEntityManager();
+            }
+        }else{
+            throw new EntityNotFoundException("Usuário com ID " + id + " não encontrado.");
         }
     }
 }

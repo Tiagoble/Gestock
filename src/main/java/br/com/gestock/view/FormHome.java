@@ -778,6 +778,7 @@ public class FormHome extends javax.swing.JFrame {
                 int id = (int) valorID;
                 ProdutosDAO produtosDAO = new ProdutosDAO();
                 produtosDAO.deletar(id);
+                JOptionPane.showMessageDialog(null, "Produto deletado!");
             } catch (ClassCastException ex) {
                 System.err.println("Erro ao converter o valor do ID.");
             }
@@ -817,6 +818,7 @@ public class FormHome extends javax.swing.JFrame {
                 int id = (int) valorID;
                 ClientesDAO clientesDAO = new ClientesDAO();
                 clientesDAO.deletar(id);
+                JOptionPane.showMessageDialog(null, "Cliente deletado!");
             } catch (ClassCastException ex) {
                 System.err.println("Erro ao converter o valor do ID.");
             }
@@ -846,6 +848,7 @@ public class FormHome extends javax.swing.JFrame {
                 int id = (int) valorID;
                 VendasDAO vendasDAO = new VendasDAO();
                 vendasDAO.deletar(id);
+                JOptionPane.showMessageDialog(null, "Venda deletada!");
             } catch (ClassCastException ex) {
                 System.err.println("Erro ao converter o valor do ID.");
             }
@@ -860,8 +863,22 @@ public class FormHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditarUsuariosActionPerformed
 
     private void buttonExcluirUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirUsuariosActionPerformed
-        if (tableUsuarios.getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(null, "Selecione um Usuário para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
+        int linhaSelecionadaView = tableUsuarios.getSelectedRow();
+        if (linhaSelecionadaView != -1){
+            int linhaSelecionadaModel = tableUsuarios.convertRowIndexToModel(linhaSelecionadaView);
+            
+            Object valorID = tableUsuarios.getModel().getValueAt(linhaSelecionadaModel, COLUNA_DO_ID);
+            
+            try {
+                int id = (int) valorID;
+                UsuariosDAO usuariosDAO = new UsuariosDAO();
+                usuariosDAO.deletar(id);
+                JOptionPane.showMessageDialog(null, "Usuário deletado!");
+            } catch (ClassCastException ex) {
+                System.err.println("Erro ao converter o valor do ID.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione um item para excluir.", "Erro ao excluir", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonExcluirUsuariosActionPerformed
 
