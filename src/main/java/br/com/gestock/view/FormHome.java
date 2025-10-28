@@ -77,7 +77,6 @@ public class FormHome extends javax.swing.JFrame {
         tableVendas = new javax.swing.JTable();
         pnUsuarios = new javax.swing.JPanel();
         labelTituloUsuarios = new javax.swing.JLabel();
-        buttonAdicionarUsuario = new javax.swing.JButton();
         buttonEditarUsuarios = new javax.swing.JButton();
         buttonExcluirUsuarios = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -531,13 +530,6 @@ public class FormHome extends javax.swing.JFrame {
         labelTituloUsuarios.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
         labelTituloUsuarios.setText("Usuários");
 
-        buttonAdicionarUsuario.setText("Adicionar");
-        buttonAdicionarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAdicionarUsuarioActionPerformed(evt);
-            }
-        });
-
         buttonEditarUsuarios.setText("Editar");
         buttonEditarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -567,18 +559,16 @@ public class FormHome extends javax.swing.JFrame {
         pnUsuariosLayout.setHorizontalGroup(
             pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnUsuariosLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(buttonAdicionarUsuario)
-                .addGap(188, 188, 188)
+                .addGap(232, 232, 232)
+                .addComponent(buttonEditarUsuarios)
                 .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnUsuariosLayout.createSequentialGroup()
-                        .addComponent(labelTituloUsuarios)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addComponent(labelTituloUsuarios))
                     .addGroup(pnUsuariosLayout.createSequentialGroup()
-                        .addComponent(buttonEditarUsuarios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
-                        .addComponent(buttonExcluirUsuarios)
-                        .addGap(108, 108, 108))))
+                        .addGap(204, 204, 204)
+                        .addComponent(buttonExcluirUsuarios)))
+                .addContainerGap(265, Short.MAX_VALUE))
             .addComponent(jScrollPane4)
         );
         pnUsuariosLayout.setVerticalGroup(
@@ -588,7 +578,6 @@ public class FormHome extends javax.swing.JFrame {
                 .addComponent(labelTituloUsuarios)
                 .addGap(18, 18, 18)
                 .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonAdicionarUsuario)
                     .addComponent(buttonEditarUsuarios)
                     .addComponent(buttonExcluirUsuarios))
                 .addGap(18, 18, 18)
@@ -617,8 +606,9 @@ public class FormHome extends javax.swing.JFrame {
                     .addComponent(pnVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalHomeLayout.createSequentialGroup()
-                    .addGap(0, 290, Short.MAX_VALUE)
-                    .addComponent(pnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(290, Short.MAX_VALUE)
+                    .addComponent(pnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         panelPrincipalHomeLayout.setVerticalGroup(
             panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,7 +626,9 @@ public class FormHome extends javax.swing.JFrame {
             .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelPrincipalHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelPrincipalHomeLayout.createSequentialGroup()
+                    .addComponent(pnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -862,11 +854,6 @@ public class FormHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonExcluirVendaActionPerformed
 
-    private void buttonAdicionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarUsuarioActionPerformed
-        FormAdicionarUsuario addUsuario = new FormAdicionarUsuario();
-        addUsuario.setVisible(true);
-    }//GEN-LAST:event_buttonAdicionarUsuarioActionPerformed
-
     private void buttonEditarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarUsuariosActionPerformed
         FormEditarUsuario editarUsuario = new FormEditarUsuario();
         editarUsuario.setVisible(true);
@@ -903,7 +890,6 @@ public class FormHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdicionarCliente;
     private javax.swing.JButton buttonAdicionarProduto;
-    private javax.swing.JButton buttonAdicionarUsuario;
     private javax.swing.JButton buttonAdicionarVenda;
     private javax.swing.JButton buttonClientes;
     private javax.swing.JButton buttonEditarCliente;

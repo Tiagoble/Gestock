@@ -10,49 +10,76 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuariosDAO {
-    
-    public void cadastrar(Usuarios usuario){
+
+    public void cadastrar(Usuarios usuario) {
         EntityManager manager = JPAUtil.getEntityManager();
-        try{
+        try {
             manager.getTransaction().begin();
             manager.persist(usuario);
             manager.getTransaction().commit();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             manager.getTransaction().rollback();
-            System.out.println("Erro ao cadastrar. "+ex.getMessage());
-        }finally{
+            System.out.println("Erro ao cadastrar. " + ex.getMessage());
+        } finally {
             JPAUtil.closeEntityManager();
         }
     }
-    
-    public Usuarios validarLogin(String username, String password){
+
+    public Usuarios validarLogin(String username, String password) {
         EntityManager manager = JPAUtil.getEntityManager();
         String jpql = "SELECT u FROM Usuarios u WHERE u.username = :username AND u.password_hash = :password";
-        try{
+        try {
             TypedQuery<Usuarios> query = manager.createQuery(jpql, Usuarios.class);
-            
+
             query.setParameter("username", username);
             query.setParameter("password", password);
-            
+
             return query.getSingleResult();
-        }catch(NoResultException ex){
+        } catch (NoResultException ex) {
             return null;
-        }catch(Exception e){
-            System.out.println("Erro ao validar login. "+e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Erro ao validar login. " + e.getMessage());
             return null;
+        } finally {
+            JPAUtil.closeEntityManager();
+        }
+    }
+
+    public List<Usuarios> getUsuarios() {
+        EntityManager manager = JPAUtil.getEntityManager();
+        String jpql = "SELECT u FROM Usuarios u";
+        try {
+            Query query = manager.createQuery(jpql, Usuarios.class);
+            return query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Erro no retorno de usuarios.");
+            return null;
+        } finally {
+            JPAUtil.closeEntityManager();
+        }
+    }
+
+    public void Editar(Usuarios usuario) {
+        EntityManager manager = JPAUtil.getEntityManager();
+        try {
+            manager.getTransaction().begin();
+            manager.merge(usuario);
+            manager.getTransaction().commit();
+        }catch(Exception ex){
+            manager.getTransaction().rollback();
+            System.out.println("Erro ao editar usuario. "+ex.getMessage());
         }finally{
             JPAUtil.closeEntityManager();
         }
     }
     
-    public List<Usuarios> getUsuarios(){
+    public Usuarios getUsuariosID(int id){
         EntityManager manager = JPAUtil.getEntityManager();
-        String jpql = "SELECT u FROM Usuarios u";
         try{
-            Query query = manager.createQuery(jpql, Usuarios.class);
-            return query.getResultList();
-        }catch(Exception e){
-            System.out.println("Erro no retorno de usuarios.");
+            Usuarios usuario = manager.find(Usuarios.class, id);
+            return usuario;
+        }catch(Exception ex){
+            System.out.println("Erro ao buscar usuario. "+ex.getMessage());
             return null;
         }finally{
             JPAUtil.closeEntityManager();
