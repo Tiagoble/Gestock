@@ -135,6 +135,11 @@ public class FormLogin extends javax.swing.JFrame {
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 150, -1));
 
         jLabel5.setText("Forgot?");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, -1, -1));
 
         lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/exit.png"))); // NOI18N
@@ -248,6 +253,10 @@ public class FormLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cadastro realizado!");
         }
     }//GEN-LAST:event_buttonCadastroMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        JOptionPane.showMessageDialog(null, "Crie uma nova conta","O Sistema não está online", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
